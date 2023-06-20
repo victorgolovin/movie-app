@@ -79,7 +79,7 @@ body {
 }
 
 .movie-app-button::before {
-    content: "";
+  content: "";
   position: absolute;
   bottom: 7px;
   display: block;
@@ -88,6 +88,48 @@ body {
   background-repeat: no-repeat;
   background-position: 50%;
   background-image: url("../files/Vector.png");
+}
+
+.movie-post {
+    display: flex;
+    justify-content: space-between;
+    width: 790px;
+    height: 71px;
+    border-radius: 10px;
+    background-color: #3A3939;
+    margin-bottom: 3px;
+}
+
+.movie-name {
+    font-size: 20px;
+    line-height: 23px;
+    text-align:left;
+    padding-top: 25px;
+    padding-left: 60px;
+}
+
+.movie-app-close-button {
+    position: relative;
+    margin-right: 24px;
+    margin-top: 24px;
+    width: 23px;
+    height: 23px;
+    background-color: #3A3939;
+    border: none;
+    cursor: pointer;
+}
+
+.movie-app-close-button::before {
+    position: absolute;
+    top: 2px;
+    content: "";
+  position: absolute;
+  display: block;
+  width: 23px;
+  height: 23px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url("../files/Vector-close.png");
 }
 
 

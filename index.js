@@ -4,6 +4,7 @@ const addMovieInputNode = document.getElementById("movie-app-input");
 const moviesNode = document.getElementById("movies");
 
 const addMovieButtonNode = document.getElementById("movie-app-button");
+const closeMovieButtonNode = document.getElementById("movie-app-close-button");
 
 const getMovieFromUser = () => {
   const movie = addMovieInputNode.value;
@@ -30,8 +31,10 @@ const renderMovies = () => {
 
   movies.forEach((movie) => {
     moviesHTML += `
-                <div class='post'>
-                    <p class='movie-name'>${movie.movie}</p> 
+                <div class='movie-post'>
+                    <p class='movie-name'>${movie.movie}</p>
+                    <button id="movie-app-close-button" 
+                    class="movie-app-close-button"></button> 
                 </div>
             `;
   });
@@ -39,20 +42,25 @@ const renderMovies = () => {
   moviesNode.innerHTML = moviesHTML;
 }
 
-function clearInput() {
+const clearInput = () => {
     addMovieInputNode.value = "";
-  }
-
+};
 
 
 const movieHandler = () => {
   const movieFromUser = getMovieFromUser();
 
+  
   addMovie(movieFromUser);
   renderMovies()
   clearInput()
 };
 
+const closeMovieHandler = () => {
+    movies = []
+    console.log(1)
+}
 
 
 addMovieButtonNode.addEventListener("click", movieHandler);
+closeMovieButtonNode.addEventListener("click", closeMovieHandler);
