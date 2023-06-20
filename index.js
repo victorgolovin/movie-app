@@ -6,7 +6,7 @@ const moviesNode = document.getElementById("movies");
 const addMovieButtonNode = document.getElementById("movie-app-button");
 
 const getMovieFromUser = () => {
-  const movie = addMovieInputNode.ariaValueMax;
+  const movie = addMovieInputNode.value;
 
   return {
     movie: movie,
@@ -39,6 +39,10 @@ const renderMovies = () => {
   moviesNode.innerHTML = moviesHTML;
 }
 
+function clearInput() {
+    addMovieInputNode.value = "";
+  }
+
 
 
 const movieHandler = () => {
@@ -46,6 +50,7 @@ const movieHandler = () => {
 
   addMovie(movieFromUser);
   renderMovies()
+  clearInput()
 };
 
 
