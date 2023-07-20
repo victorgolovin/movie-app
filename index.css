@@ -92,7 +92,6 @@ body {
 
 .movie-post {
     display: flex;
-    justify-content: space-between;
     width: 790px;
     height: 71px;
     border-radius: 10px;
@@ -100,12 +99,16 @@ body {
     margin-bottom: 3px;
 }
 
-.movie-name {
+.movie-post-label {
     font-size: 20px;
     line-height: 23px;
     text-align:left;
     padding-top: 25px;
     padding-left: 60px;
+}
+
+.movie-post-checkbox {
+    margin-left: 30px;
 }
 
 .movie-app-close-button {
