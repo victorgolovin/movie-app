@@ -111,6 +111,10 @@ body {
     margin-left: 30px;
 }
 
+.movie-post-checkbox {
+    margin-left: 30px;
+}
+
 .movie-app-close-button {
     position: relative;
     margin-right: 24px;
