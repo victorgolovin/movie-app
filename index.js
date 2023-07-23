@@ -34,7 +34,7 @@ const renderMovies = () => {
     <li class="movie-post">
       <input class="movie-post-checkbox" type="checkbox">
       <label class="movie-post-label">${movie.movie}</label>
-      <div class="movie-app-delete"></div>
+      <button class="movie-app-delete"></button>
     </li>
             `;
   });
@@ -44,36 +44,18 @@ const renderMovies = () => {
 
 
 const deleteMoviesHandler = (event) => {
-  if (event.target.classList.contains("movie-app-delete")) {
-    const deleteMovieItem = event.target.closest(".movie-post");
-    const deleteMovieIndex = renderMovies(deleteMovieItem);
-       
-    movies.splice(deleteMovieIndex, 1);
-    deleteMovieItem.remove();
-    };
-
-  if (event.target.classList.contains("movie-app-delete"))
-    {
-      const deleteMovieItem = event.target.closest(".movie-post");
-      const deleteMovieIndex = renderMovies(deleteMovieItem);
-         
-      movies.splice(deleteMovieIndex, 1);
-      deleteMovieItem.remove();
-      }; 
+  if (event.target.classList.contains("movie-app-delete") ||
+    event.target.classList.contains("movie-app-delete")) {
+        const deleteMovieItem = event.target.closest(".movie-post");
+        const deleteMovieIndex = getMovies(deleteMovieItem);
+           
+        movies.splice(deleteMovieIndex, 1);
+        deleteMovieItem.remove();
+        };  
 
 }
 
-// активация чекбокса
-const activeCheckbox = (event) => {
-  if (event.target.classList.contains("film-item__checkbox") ||
-  event.target.classList.contains("label")) {
-      const currentFilmItem = event.target.closest(".movie-post");
-      const currentCheckbox = event.target.closest(".label");
-      // const currentFilmIndex = getFilmIndex(currentFilmItem);
-      currentFilmItem.classList.toggle(CHECKED_CLASS_NAME);
-      currentCheckbox.classList.toggle(CHECKED_CHECKBOX);
-  }
-}
+
 
 
 const clearInput = () => {
