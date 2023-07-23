@@ -4,7 +4,7 @@ const addMovieInputNode = document.getElementById("movie-app-input");
 const moviesNode = document.getElementById("movies");
 
 const addMovieButtonNode = document.getElementById("movie-app-button");
-const closeMovieButtonNode = document.getElementById("movie-app-close-button");
+const deleteMovieNode = document.getElementById("movile-app-list");
 
 const getMovieFromUser = () => {
   const movie = addMovieInputNode.value;
@@ -34,27 +34,47 @@ const renderMovies = () => {
     <li class="movie-post">
       <input class="movie-post-checkbox" type="checkbox">
       <label class="movie-post-label">${movie.movie}</label>
-      <div class="movie-post-delete">
-        <span class="movie-post-delete-span"></span>
-    </div>
-</li>
+      <div class="movie-app-delete"></div>
+    </li>
             `;
   });
 
   moviesNode.innerHTML = moviesHTML;
 }
 
-const deleteMovie = (event) => {
-  if (event.target.classList.contains("film-item__delete-film") ||
-  event.target.classList.contains("film-item__delete-film-span")) {
-      const currentFilmItem = event.target.closest(".film-item");
-      const currentFilmIndex = getFilmIndex(currentFilmItem);
+
+const deleteMoviesHandler = (event) => {
+  if (event.target.classList.contains("movie-app-delete")) {
+    const deleteMovieItem = event.target.closest(".movie-post");
+    const deleteMovieIndex = renderMovies(deleteMovieItem);
+       
+    movies.splice(deleteMovieIndex, 1);
+    deleteMovieItem.remove();
+    };
+
+  if (event.target.classList.contains("movie-app-delete"))
+    {
+      const deleteMovieItem = event.target.closest(".movie-post");
+      const deleteMovieIndex = renderMovies(deleteMovieItem);
          
-      films.splice(currentFilmIndex, 1);
-      currentFilmItem.remove();
+      movies.splice(deleteMovieIndex, 1);
+      deleteMovieItem.remove();
       }; 
 
 }
+
+// активация чекбокса
+const activeCheckbox = (event) => {
+  if (event.target.classList.contains("film-item__checkbox") ||
+  event.target.classList.contains("label")) {
+      const currentFilmItem = event.target.closest(".movie-post");
+      const currentCheckbox = event.target.closest(".label");
+      // const currentFilmIndex = getFilmIndex(currentFilmItem);
+      currentFilmItem.classList.toggle(CHECKED_CLASS_NAME);
+      currentCheckbox.classList.toggle(CHECKED_CHECKBOX);
+  }
+}
+
 
 const clearInput = () => {
     addMovieInputNode.value = "";
@@ -66,6 +86,8 @@ const emptyInput = () => {
     }
 }
 
+
+
 const movieHandler = () => {
   const movieFromUser = getMovieFromUser();
 
@@ -75,11 +97,6 @@ const movieHandler = () => {
   clearInput()
 };
 
-const closeMovieHandler = () => {
-    movies = []
-    console.log(1)
-}
-
 
 addMovieButtonNode.addEventListener("click", movieHandler);
-closeMovieButtonNode.addEventListener("click", closeMovieHandler);
+deleteMovieNode.addEventListener("click", deleteMoviesHandler);

@@ -104,19 +104,16 @@ body {
     line-height: 23px;
     text-align:left;
     padding-top: 25px;
-    padding-left: 60px;
+    padding-left: 25px;
 }
 
 .movie-post-checkbox {
     margin-left: 30px;
 }
 
-.movie-post-checkbox {
-    margin-left: 30px;
-}
-
-.movie-app-close-button {
+.movie-app-delete {
     position: relative;
+    left: 625px;
     margin-right: 24px;
     margin-top: 24px;
     width: 23px;
@@ -126,7 +123,7 @@ body {
     cursor: pointer;
 }
 
-.movie-app-close-button::before {
+.movie-app-delete::before {
     position: absolute;
     top: 2px;
     content: "";
