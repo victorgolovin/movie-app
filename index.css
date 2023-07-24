@@ -92,6 +92,7 @@ body {
 
 .movie-post {
     display: flex;
+    justify-content: space-between;
     width: 790px;
     height: 71px;
     border-radius: 10px;
@@ -112,8 +113,6 @@ body {
 }
 
 .movie-app-delete {
-    position: relative;
-    left: 625px;
     margin-right: 24px;
     margin-top: 24px;
     width: 23px;
@@ -133,12 +132,10 @@ body {
   height: 23px;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-image: url("../files/Vector-close.png");
+  background-image: url("..///files/Vector-close.png");
 }
 
-.checked-checkbox {
-    background-color: rgba(58, 30, 141, 0.5);
-}
+
 
 .movie-post-checkbox {
     position: absolute;
@@ -147,7 +144,6 @@ body {
 }
 
 .movie-post-label {
-    width: 80%;
     display: flex;
 }
 .movie-post-label::before {
@@ -167,5 +163,9 @@ body {
     background-color: rgba(56, 55, 55, 0.397);
     text-decoration: line-through;
     color: rgba(243, 246, 249, 0.3);
+}
+
+.checked-checkbox::before {
+    background-color: rgba(58, 30, 141, 0.5);
 }
 
