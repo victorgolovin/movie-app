@@ -1,10 +1,12 @@
+const VALIDATION_MASSAGE_TO_USER = "Введите название фильма!";
+
 const movies = [];
 
 const addMovieInputNode = document.getElementById("movie-app-input");
 const moviesNode = document.getElementById("movies");
 
 const addMovieButtonNode = document.getElementById("movie-app-button");
-const deleteMovieNode = document.getElementById("movile-app-list");
+const movieListNode = document.getElementById("movile-app-list");
 const validationMessageNode = document.getElementById("validation-message");
 
 const getMovieFromUser = () => {
@@ -41,35 +43,21 @@ const renderMovies = () => {
   });
 
   moviesNode.innerHTML = moviesHTML;
-}
-
-const activeMovieCheckbox = (event) => {
-  if (event.target.classList.contains("movie-post-checkbox") ||
-  event.target.classList.contains("movie-post-label")) {
-      const deleteMovieItem = event.target.closest(".movie-post");
-      const movieCheckbox = event.target.closest(".movie-post-label");
-      
-      deleteMovieItem.classList.toggle("checked-movie-post");
-      movieCheckbox.classList.toggle("checked-checkbox");
-  }
-}
-
+};
 
 const clearInput = () => {
-    addMovieInputNode.value = "";
+  addMovieInputNode.value = "";
 };
 
 const movieValidation = () => {
   if (!addMovieInputNode.value) {
-    validationMessageNode.innerText = "Введите текст!";
-    validationMessageNode.classList.remove("validation-message-hidden")
+    validationMessageNode.innerText = VALIDATION_MASSAGE_TO_USER;
+    validationMessageNode.classList.remove("validation-message-hidden");
     return;
   }
 
-  validationMessageNode.classList.add("validation-message-hidden")
-}
-
-
+  validationMessageNode.classList.add("validation-message-hidden");
+};
 
 const movieHandler = () => {
   movieValidation();
@@ -81,24 +69,33 @@ const movieHandler = () => {
   const movieFromUser = getMovieFromUser();
 
   addMovie(movieFromUser);
-  renderMovies()
-  clearInput()
+  renderMovies();
+  clearInput();
 };
 
 const deleteMoviesHandler = (event) => {
   if (event.target.classList.contains("movie-app-delete")) {
+    const deleteMovieItem = event.target.closest(".movie-post");
+    const deleteMovieIndex = getMovies(deleteMovieItem);
 
-        const deleteMovieItem = event.target.closest(".movie-post");
-        const deleteMovieIndex = getMovies(deleteMovieItem);
-           
-        movies.splice(deleteMovieIndex, 1);
-        deleteMovieItem.remove();
-        };  
+    movies.splice(deleteMovieIndex, 1);
+    deleteMovieItem.remove();
+  }
+};
 
-}
+const activeMovieCheckbox = (event) => {
+  if (
+    event.target.classList.contains("movie-post-checkbox") ||
+    event.target.classList.contains("movie-post-label")
+  ) {
+    const movieListNode = event.target.closest(".movie-post");
+    const movieCheckbox = event.target.closest(".movie-post-label");
 
+    movieListNode.classList.toggle("checked-movie-post");
+    movieCheckbox.classList.toggle("checked-checkbox");
+  }
+};
 
 addMovieButtonNode.addEventListener("click", movieHandler);
-deleteMovieNode.addEventListener("click", deleteMoviesHandler);
-deleteMovieNode.addEventListener("click", activeMovieCheckbox);
-
+movieListNode.addEventListener("click", deleteMoviesHandler);
+movieListNode.addEventListener("click", activeMovieCheckbox);

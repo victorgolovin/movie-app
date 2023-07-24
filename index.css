@@ -1,81 +1,80 @@
 body {
-    background-color: #181818;
-    font-family: 'Arimo', sans-serif;
-    color: #F3F6F9;
+  background-color: #181818;
+  font-family: "Arimo", sans-serif;
+  color: #f3f6f9;
 }
 
 .movie-app {
-    padding-top: 80px;
-    padding-bottom: 30px;
+  padding-top: 80px;
+  padding-bottom: 30px;
 }
 
 .container {
-    width: 930px;
-    margin: 0 auto;
+  width: 930px;
+  margin: 0 auto;
 }
 
 .movie-app-title {
-    display: inline-block;
-    padding: 10px 23px 10px 23px;
-    font-size: 15px;
-    line-height: 17px;
-    font-weight: 100;
-    background-color: #6532F8;
-    border-radius: 200px;
+  display: inline-block;
+  padding: 10px 23px 10px 23px;
+  font-size: 15px;
+  line-height: 17px;
+  font-weight: 100;
+  background-color: #6532f8;
+  border-radius: 200px;
 }
 
 .movie-app-text {
-    font-size: 120px;
-    line-height: 138px;
-    margin-bottom: 45px;
+  font-size: 120px;
+  line-height: 138px;
+  margin-bottom: 45px;
 }
 
 .movie-app-wrapper {
-    width: 930px;
-    height: 986px;
-    background-color: #232323;
-    border-radius: 20px;
-    padding-left: 70px;
-    padding-right: 70px;
+  width: 930px;
+  height: 986px;
+  background-color: #232323;
+  border-radius: 20px;
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .movile-app-inner {
-    display: flex;
-    gap: 20px;
-    padding-top: 86px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  padding-top: 86px;
+  margin-bottom: 20px;
 }
 
 .movie-app-input {
-    width: 411px;
-    font-size: 30px;
-    line-height: 34px;
-    color: #F3F6F9;
-    background-color: #232323;
-    border: none;
-    border-bottom: solid 2px;
-    border-color: #F3F6F9;
-    opacity: 0.5;
+  width: 411px;
+  font-size: 30px;
+  line-height: 34px;
+  color: #f3f6f9;
+  background-color: #232323;
+  border: none;
+  border-bottom: solid 2px;
+  border-color: #f3f6f9;
+  opacity: 0.5;
 }
 
 .movie-app-input::placeholder {
-    font-size: 30px;
-    line-height: 34px;
+  font-size: 30px;
+  line-height: 34px;
 }
 
 .movie-app-input:focus {
-    outline: none;
+  outline: none;
 }
 
-
 .movie-app-button {
-    position: relative;
-    width: 62px;
-    height: 62px;
-    cursor: pointer;
-    background-color: #6532F8;
-    border-radius: 32px;
-    border: none;
+  position: relative;
+  width: 62px;
+  height: 62px;
+  cursor: pointer;
+  background-color: #6532f8;
+  border-radius: 32px;
+  border: none;
 }
 
 .movie-app-button::before {
@@ -90,42 +89,45 @@ body {
   background-image: url("../files/Vector.png");
 }
 
-.movie-post {
-    display: flex;
-    justify-content: space-between;
-    width: 790px;
-    height: 71px;
-    border-radius: 10px;
-    background-color: #3A3939;
-    margin-bottom: 3px;
+.validation-message {
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  color: red;
 }
 
-.movie-post-label {
-    font-size: 20px;
-    line-height: 23px;
-    text-align:left;
-    padding-top: 25px;
-    padding-left: 25px;
+.validation-message-hidden {
+  display: none;
+}
+
+.movie-post {
+  display: flex;
+  justify-content: space-between;
+  width: 790px;
+  height: 71px;
+  border-radius: 10px;
+  background-color: #3a3939;
+  margin-bottom: 3px;
 }
 
 .movie-post-checkbox {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .movie-app-delete {
-    margin-right: 24px;
-    margin-top: 24px;
-    width: 23px;
-    height: 23px;
-    background-color: #3A3939;
-    border: none;
-    cursor: pointer;
+  margin-right: 24px;
+  margin-top: 24px;
+  width: 23px;
+  height: 23px;
+  background-color: #3a3939;
+  border: none;
+  cursor: pointer;
 }
 
 .movie-app-delete::before {
-    position: absolute;
-    top: 2px;
-    content: "";
+  position: absolute;
+  top: 2px;
+  content: "";
   position: absolute;
   display: block;
   width: 23px;
@@ -135,49 +137,130 @@ body {
   background-image: url("..///files/Vector-close.png");
 }
 
-
-
 .movie-post-checkbox {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+  position: absolute;
+  opacity: 0;
 }
 
 .movie-post-label {
-    display: flex;
+  display: flex;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: left;
+  padding-top: 25px;
+  padding-left: 25px;
 }
+
 .movie-post-label::before {
-    content: '';
-    display: block;
-    min-width: 19px;
-    height: 19px;
-    border: 1px solid #F3F6F9;
-    border-radius: 100px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50% 50%;
-    margin-right: 10px;
+  content: "";
+  display: block;
+  min-width: 20px;
+  height: 20px;
+  border: 1px solid #f3f6f9;
+  border-radius: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  margin-right: 10px;
 }
 
 .checked-movie-post {
-    background-color: rgba(56, 55, 55, 0.397);
-    text-decoration: line-through;
-    color: rgba(243, 246, 249, 0.3);
+  background-color: rgba(56, 55, 55, 0.397);
+  text-decoration: line-through;
+  color: rgba(243, 246, 249, 0.3);
 }
 
 .checked-checkbox::before {
-    background-color: rgba(58, 30, 141, 0.5);
+  background-color: rgba(58, 30, 141, 0.5);
 }
 
-.validation-message {
-    font-size: 25px;
-    line-height: 30px;
+@media (max-width: 999px) {
+  .container {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 
+  .movie-app-wrapper {
+    width: 100%;
+    height: 600px;
+    background-color: #232323;
+    border-radius: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  .movie-app-text {
+    font-size: 100px;
+    line-height: 110px;
+    margin-bottom: 35px;
+  }
+
+  .movie-post {
+    width: 100%;
+  }
+}
+
+@media (max-width: 719px) {
+  .movie-app-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .movie-app-text {
+    font-size: 70px;
+    line-height: 80px;
+    margin-bottom: 25px;
+  }
+
+  .movie-app-input {
+    width: 100%;
+    font-size: 20px;
+    line-height: 25px;
+    color: #f3f6f9;
+    background-color: #232323;
+    border: none;
+    border-bottom: solid 2px;
+    border-color: #f3f6f9;
+    opacity: 0.5;
+  }
+
+  .movie-app-input::placeholder {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .movie-app-button {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    background-color: #6532f8;
+    border-radius: 32px;
+    border: none;
+  }
+
+  .movie-app-button::before {
+    position: relative;
+  }
+
+  .validation-message {
+    font-size: 20px;
+    line-height: 25px;
     margin-bottom: 15px;
     color: red;
   }
-  
-  .validation-message-hidden {
-    display: none;
-  }
 
+  .movie-post-label {
+    font-size: 18px;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 469px) {
+  .movie-app-text {
+    font-size: 50px;
+    line-height: 70px;
+    margin-bottom: 25px;
+  }
+}
