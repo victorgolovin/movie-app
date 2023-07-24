@@ -5,7 +5,7 @@ const moviesNode = document.getElementById("movies");
 
 const addMovieButtonNode = document.getElementById("movie-app-button");
 const deleteMovieNode = document.getElementById("movile-app-list");
-const activeCheckboxNode = document.getElementById("")
+const validationMessageNode = document.getElementById("validation-message");
 
 const getMovieFromUser = () => {
   const movie = addMovieInputNode.value;
@@ -55,25 +55,31 @@ const activeMovieCheckbox = (event) => {
 }
 
 
-
-
-
 const clearInput = () => {
     addMovieInputNode.value = "";
 };
 
-const emptyInput = () => {
-    if (!addMovieInputNode.value) {
-        return;
-    }
+const movieValidation = () => {
+  if (!addMovieInputNode.value) {
+    validationMessageNode.innerText = "Введите текст!";
+    validationMessageNode.classList.remove("validation-message-hidden")
+    return;
+  }
+
+  validationMessageNode.classList.add("validation-message-hidden")
 }
 
 
 
 const movieHandler = () => {
+  movieValidation();
+
+  if (addMovieInputNode.value === "") {
+    return;
+  }
+
   const movieFromUser = getMovieFromUser();
 
-  emptyInput()
   addMovie(movieFromUser);
   renderMovies()
   clearInput()

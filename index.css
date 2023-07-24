@@ -43,7 +43,7 @@ body {
     display: flex;
     gap: 20px;
     padding-top: 86px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .movie-app-input {
@@ -168,4 +168,16 @@ body {
 .checked-checkbox::before {
     background-color: rgba(58, 30, 141, 0.5);
 }
+
+.validation-message {
+    font-size: 25px;
+    line-height: 30px;
+
+    margin-bottom: 15px;
+    color: red;
+  }
+  
+  .validation-message-hidden {
+    display: none;
+  }
 
