@@ -32,11 +32,12 @@ body {
 
 .movie-app-wrapper {
   width: 930px;
-  height: 986px;
+  height: 100%;
   background-color: #232323;
   border-radius: 20px;
   padding-left: 70px;
   padding-right: 70px;
+  padding-bottom: 70px;
 }
 
 .movile-app-inner {
@@ -119,22 +120,24 @@ body {
   margin-top: 24px;
   width: 23px;
   height: 23px;
-  background-color: #3a3939;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
 .movie-app-delete::before {
-  position: absolute;
   top: 2px;
   content: "";
-  position: absolute;
   display: block;
   width: 23px;
   height: 23px;
   background-repeat: no-repeat;
   background-position: 50%;
   background-image: url("..///files/Vector-close.png");
+}
+
+.movie-app-delete:hover {
+  opacity: 0.5;
 }
 
 .movie-post-checkbox {
@@ -174,6 +177,10 @@ body {
   background-color: rgba(58, 30, 141, 0.5);
 }
 
+.checked-delete {
+  background-color: rgba(58, 30, 141, 0.5);
+}
+
 @media (max-width: 999px) {
   .container {
     width: 100%;
@@ -183,7 +190,6 @@ body {
 
   .movie-app-wrapper {
     width: 100%;
-    height: 600px;
     background-color: #232323;
     border-radius: 20px;
     padding-left: 70px;
@@ -238,6 +244,12 @@ body {
     background-color: #6532f8;
     border-radius: 32px;
     border: none;
+  }
+
+  .movie-app-button::before {
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
   }
 
   .movie-app-button::before {
