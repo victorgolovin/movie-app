@@ -36,8 +36,8 @@ const renderMovies = (addMovie) => {
             `;
 };
 
-const createMovie = (newFilm) => {
-  const movieList = renderMovies(newFilm);
+const createMovie = (newMovie) => {
+  const movieList = renderMovies(newMovie);
   movieListNode.insertAdjacentHTML("afterBegin", movieList);
 };
 
