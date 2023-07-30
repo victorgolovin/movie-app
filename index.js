@@ -1,6 +1,6 @@
 const VALIDATION_MASSAGE_TO_USER = "Введите название фильма!";
-const VALIDATION_MASSAGE_TO_USER_IF_OVER_SYMBOLS ="Название фильма превышает 15 символов!";
-const VALIDATION_LIMIT_SYMBOLS = 15;
+const VALIDATION_MASSAGE_TO_USER_IF_OVER_SYMBOLS ="Название фильма превышает 25 символов!";
+const VALIDATION_LIMIT_SYMBOLS = 25;
 
 let movies = [];
 
