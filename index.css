@@ -87,7 +87,7 @@ body {
   height: 50px;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-image: url("..//files/Vector.png");
+  background-image: url("..//movie-app/files/Vector.png");
 }
 
 .validation-message {
@@ -133,7 +133,7 @@ body {
   height: 23px;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-image: url("..//files/Vector-close.png");
+  background-image: url("..//movie-app/files/Vector-close.png");
 }
 
 .movie-app-delete:hover {
