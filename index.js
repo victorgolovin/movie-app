@@ -1,50 +1,44 @@
 const VALIDATION_MASSAGE_TO_USER = "Введите название фильма!";
-const VALIDATION_MASSAGE_TO_USER_IF_OVER_SYMBOLS = "Название фильма превышает 30 символов!";
-const VALIDATION_LIMIT_SYMBOLS = 30;
+const VALIDATION_MASSAGE_TO_USER_IF_OVER_SYMBOLS ="Название фильма превышает 15 символов!";
+const VALIDATION_LIMIT_SYMBOLS = 15;
 
-const movies = [];
-
-const addMovieInputNode = document.getElementById("movie-app-input");
-const moviesNode = document.getElementById("movies");
+let movies = [];
 
 let addMovieButtonNode = document.getElementById("movie-app-button");
+const addMovieInputNode = document.getElementById("movie-app-input");
+const moviesNode = document.getElementById("movies");
 const movieListNode = document.getElementById("movile-app-list");
 const validationMessageNode = document.getElementById("validation-message");
 
-const getMovieFromUser = () => {
-  const movie = addMovieInputNode.value;
 
-  return {
-    movie: movie,
-  };
+const getMovieFromUser = () => {
+  let movie = addMovieInputNode.value;
+
+  return movie;
 };
 
-const addMovie = ({ movie }) => {
-  movies.push({
-    movie: movie,
-  });
+const addMovie = () => {
+  const nameMovie = getMovieFromUser();
+  movies.push(nameMovie);
 };
 
 const getMovies = () => {
   return movies;
 };
 
-const renderMovies = () => {
-  const movies = getMovies();
-
-  let moviesHTML = "";
-
-  movies.forEach((movie) => {
-    moviesHTML += `
+const renderMovies = (addMovie) => {
+  return `
     <li class="movie-post">
       <input class="movie-post-checkbox" type="checkbox">
-      <label class="movie-post-label">${movie.movie}</label>
+      <label class="movie-post-label">${addMovie}</label>
       <button class="movie-app-delete"></button>
     </li>
             `;
-  });
+};
 
-  moviesNode.innerHTML = moviesHTML;
+const createMovie = (newFilm) => {
+  const movieList = renderMovies(newFilm);
+  movieListNode.insertAdjacentHTML("afterBegin", movieList);
 };
 
 const clearInput = () => {
@@ -54,9 +48,12 @@ const clearInput = () => {
 const movieValidation = () => {
   const titleLength = addMovieInputNode.value.length;
   if (titleLength > VALIDATION_LIMIT_SYMBOLS) {
-    validationMessageNode.innerText = VALIDATION_MASSAGE_TO_USER_IF_OVER_SYMBOLS;
+    validationMessageNode.innerText =
+      VALIDATION_MASSAGE_TO_USER_IF_OVER_SYMBOLS;
     validationMessageNode.classList.remove("validation-message-hidden");
-    addMovieButtonNode = document.getElementById("movie-app-button").disabled = true;
+    addMovieButtonNode = document.getElementById(
+      "movie-app-button"
+    ).disabled = true;
     return;
   }
 
@@ -66,22 +63,10 @@ const movieValidation = () => {
     return;
   }
 
-  addMovieButtonNode = document.getElementById("movie-app-button").disabled = false;
+  addMovieButtonNode = document.getElementById(
+    "movie-app-button"
+  ).disabled = false;
   validationMessageNode.classList.add("validation-message-hidden");
-};
-
-const movieHandler = () => {
-  movieValidation();
-
-  if (addMovieInputNode.value === "") {
-    return;
-  }
-
-  const movieFromUser = getMovieFromUser();
-
-  addMovie(movieFromUser);
-  renderMovies();
-  clearInput();
 };
 
 const deleteMoviesHandler = (event) => {
@@ -96,14 +81,30 @@ const deleteMoviesHandler = (event) => {
 const activeMovieCheckbox = (event) => {
   const movieListNode = event.target.closest(".movie-post");
   const movieCheckbox = event.target.closest(".movie-post-label");
-  if (event.target.classList.contains("movie-post-checkbox") || event.target.classList.contains("movie-post-label"))
-  {
+  if (
+    event.target.classList.contains("movie-post-checkbox") ||
+    event.target.classList.contains("movie-post-label")
+  ) {
     movieListNode.classList.toggle("checked-movie-post");
     movieCheckbox.classList.toggle("checked-checkbox");
   }
 };
 
+const movieHandler = () => {
+  movieValidation();
+
+  if (addMovieInputNode.value === "") {
+    return;
+  }
+
+  addMovie();
+  createMovie(getMovieFromUser());
+  clearInput();
+};
+
 addMovieButtonNode.addEventListener("click", movieHandler);
 movieListNode.addEventListener("click", deleteMoviesHandler);
 movieListNode.addEventListener("click", activeMovieCheckbox);
-addMovieInputNode.addEventListener("input", () => {movieValidation()});
+addMovieInputNode.addEventListener("input", () => {
+  movieValidation();
+});
