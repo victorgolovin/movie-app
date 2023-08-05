@@ -17,7 +17,7 @@ const getMovieFromUser = () => {
   return movie;
 };
 
-const addMovie = () => {
+const renderMovieFromUser = () => {
   const nameMovie = getMovieFromUser();
   movies.push(nameMovie);
 };
@@ -45,15 +45,25 @@ const clearInput = () => {
   addMovieInputNode.value = "";
 };
 
+const validBtn = () => {
+  const validationBtn = addMovieButtonNode.disabled = true;
+
+  return validationBtn;
+}
+
+const notValidBtn = () => {
+  const validationBtn = addMovieButtonNode.disabled = false;
+
+  return validationBtn;
+}
+
 const movieValidation = () => {
   const titleLength = addMovieInputNode.value.length;
   if (titleLength > VALIDATION_LIMIT_SYMBOLS) {
     validationMessageNode.innerText =
       VALIDATION_MASSAGE_TO_USER_IF_OVER_SYMBOLS;
     validationMessageNode.classList.remove("validation-message-hidden");
-    addMovieButtonNode = document.getElementById(
-      "movie-app-button"
-    ).disabled = true;
+    validBtn();
     return;
   }
 
@@ -63,9 +73,7 @@ const movieValidation = () => {
     return;
   }
 
-  addMovieButtonNode = document.getElementById(
-    "movie-app-button"
-  ).disabled = false;
+  notValidBtn();
   validationMessageNode.classList.add("validation-message-hidden");
 };
 
@@ -97,7 +105,7 @@ const movieHandler = () => {
     return;
   }
 
-  addMovie();
+  renderMovieFromUser();
   createMovie(getMovieFromUser());
   clearInput();
 };
