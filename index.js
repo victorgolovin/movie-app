@@ -26,11 +26,11 @@ const getMovies = () => {
   return movies;
 };
 
-const renderMovies = (addMovie) => {
+const renderMovies = (getMovies) => {
   return `
     <li class="movie-post">
       <input class="movie-post-checkbox" type="checkbox">
-      <label class="movie-post-label">${addMovie}</label>
+      <label class="movie-post-label">${getMovies}</label>
       <button class="movie-app-delete"></button>
     </li>
             `;
